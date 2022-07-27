@@ -264,13 +264,19 @@ const seaching_by_menu = () =>{
     let Gender = undefined;
     let Shiny = false;
 
+    
+
+
     if(check_is_female())
         Gender = 'F';
     if(check_is_shiny()){
         Shiny = true;
     }
     
-    render_pokemon(NameID ,Gender, Shiny );
+    if(NameID != '' && NameID != undefined){
+        render_pokemon(NameID ,Gender, Shiny );
+    }
+    
     show_menu();
 
 }
