@@ -1,3 +1,11 @@
+let notFoundPokemon = "res/question.gif";
+let voice_default = "Microsoft Eric Online (Natural) - English (United States)";
+
+/*
+
+ELEMENTOS PRINCIPAIS
+
+*/
 const pokemon_num = document.getElementById('pokemon_num');
 const pokemon_name = document.getElementById('pokemon_name');
 const pokemon_type = document.getElementById('pokemon_type');
@@ -9,13 +17,27 @@ const btn_seaching = document.getElementById('btn_seach');
 const audio_confg = document.getElementById('audio');
 const submit_input = document.getElementById('pokeNameID');
 
+/*
+*   DETALHES DOS POKEMONS
+*/
 const poke_abilit  = document.getElementById('poke_abilit');
 const poke_width   = document.getElementById('poke_width');
 const poke_exp     = document.getElementById('poke_exp');
 const poke_height  = document.getElementById('poke_height');
 
-let voice_default = "Microsoft Eric Online (Natural) - English (United States)";
 const btn_config_audio = document.getElementById('config_audio');
+
+
+menu.style.display = "none";
+details.style.display = "none";
+seaching.style.display = "none";
+
+/*
+variaveis iniciais
+*/
+let pokemon_id = 25;
+let pokemon_data_sprite;
+let back_state = 0;
 
 btn_config_audio.addEventListener('click', () => {
 
@@ -30,13 +52,6 @@ btn_config_audio.addEventListener('click', () => {
 
 })
 
-
-menu.style.display = "none";
-details.style.display = "none";
-seaching.style.display = "none";
-let pokemon_id = 25;
-let pokemon_data_sprite;
-let back_state = 0;
 
 const get_pokemon_name = () =>{
     let NameOrID = document.getElementById('pokeNameID');
@@ -112,10 +127,10 @@ function get_pokemon_img(data, gender, shiny, generation){
             if(gender == 'f'){
                 if(shiny){
                     
-                    return  pokemon_data_sprite.front_shiny_female? pokemon_data_sprite.front_shiny_female : "/res/question.gif";
+                    return  pokemon_data_sprite.front_shiny_female? pokemon_data_sprite.front_shiny_female : notFoundPokemon;
                 }
                 
-                return  pokemon_data_sprite.front_female? pokemon_data_sprite.front_female : "/res/question.gif";
+                return  pokemon_data_sprite.front_female? pokemon_data_sprite.front_female : notFoundPokemon;
          
             }
             if(shiny){
@@ -139,7 +154,7 @@ const render_pokemon = async (pokemon, gender, shiny) =>{
     pokemon_num.innerText = 'FF';
     pokemon_name.innerText = 'Not found';
     pokemon_type.innerText = "NONE";
-    pokemon_sprite.src = "/res/question.gif";
+    pokemon_sprite.src = notFoundPokemon;
     return;
    }
 
@@ -348,7 +363,7 @@ const seeBackUI = () =>{
 
 
     if(spt == null || spt == undefined)
-        spt = "/res/question.gif";
+        spt = notFoundPokemon;
 
     pokemon_sprite.src = spt;
 }
