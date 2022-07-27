@@ -48,6 +48,10 @@ body{
     display: none;
 }
 
+#poke_details h3{
+    font-size: clamp(12px, 3vw, 28px);
+}
+
 
 .Menu .seaching{
     margin: 25%;
