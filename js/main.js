@@ -112,10 +112,10 @@ function get_pokemon_img(data, gender, shiny, generation){
             if(gender == 'f'){
                 if(shiny){
                     
-                    return  pokemon_data_sprite.front_shiny_female? pokemon_data_sprite.front_shiny_female : '../res/question.gif' ;
+                    return  pokemon_data_sprite.front_shiny_female? pokemon_data_sprite.front_shiny_female : "/res/question.gif";
                 }
                 
-                return  pokemon_data_sprite.front_female? pokemon_data_sprite.front_female : '../res/question.gif' ;
+                return  pokemon_data_sprite.front_female? pokemon_data_sprite.front_female : "/res/question.gif";
          
             }
             if(shiny){
@@ -139,7 +139,7 @@ const render_pokemon = async (pokemon, gender, shiny) =>{
     pokemon_num.innerText = 'FF';
     pokemon_name.innerText = 'Not found';
     pokemon_type.innerText = "NONE";
-    pokemon_sprite.src = "../res/question.gif";
+    pokemon_sprite.src = "/res/question.gif";
     return;
    }
 
@@ -342,7 +342,7 @@ const seeBackUI = () =>{
 
 
     if(spt == null || spt == undefined)
-        spt = "../res/question.gif";
+        spt = "/res/question.gif";
 
     pokemon_sprite.src = spt;
 }
