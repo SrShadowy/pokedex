@@ -10,6 +10,7 @@ body{
     min-height: 100vh;
     min-width: 100vw;
     text-align: center;
+    overflow: hidden;
 }
 .center{
     display: inline-block;
@@ -150,6 +151,7 @@ body{
     margin-left: 2%;
     height: 25vh;
     width: auto;
+    top: 0;
 }
 
 @keyframes irotete{
@@ -303,9 +305,9 @@ body{
 
 @media (max-width:1000px) {
     .anim{
-        position: fixed;
-        top: 80%;
-        width: 100vw;
+        position: relative;
+        width: 100%;
+        
     }
     
     .anim .Cicle{
