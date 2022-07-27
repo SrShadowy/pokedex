@@ -208,6 +208,8 @@ const render_pokemon = async (pokemon, gender, shiny) =>{
    let text_for_speak = data.name + ", Pokémon " + poke_type + " type, they can reach " + height_m.substring(0, height_m.length-1) + "meters and weigh about " + weight_m; 
    text_for_speak = text_for_speak.replace('/'," and ");
    change_voice(voice_default);
+
+   if(document.getElementById('volume').value != 0)
    speak_for_us(text_for_speak);
 
 
@@ -264,8 +266,6 @@ const seaching_by_menu = () =>{
     let Gender = undefined;
     let Shiny = false;
 
-    
-
 
     if(check_is_female())
         Gender = 'F';
@@ -276,7 +276,7 @@ const seaching_by_menu = () =>{
     if(NameID != '' && NameID != undefined){
         render_pokemon(NameID ,Gender, Shiny );
     }
-    
+
     show_menu();
 
 }
