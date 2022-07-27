@@ -30,7 +30,10 @@ body{
 
 #Pokedex{
     width: 100%;
+    height: auto;
+    max-height: 90vh;
     max-width: 900px;
+
 }
 
 .Menu{
