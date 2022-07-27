@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="res/pball.png" type="image/x-icon">
+    <title>New Pokedex</title>
+</head>
+<body>
+
+    <div class="anim">
+        
+        <div class="Cicle" style="--name: 'Discord'" onclick="openURL('https://discord.gg/VbUNUUXvjJ')">
+            <img src="res/pball.png" alt="pokebola">
+     
+        </div>
+
+                
+        <div class="Cicle" style="--name: 'GitHub'"  onclick="openURL('https://github.com/SrShadowy')">
+          
+            <img src="res/pball.png" alt="pokebola">
+           
+          
+        </div>
+
+        <div class="Cicle" style="--name: 'Patreon'"  onclick="openURL('https://www.patreon.com/srshadowy')">
+          
+            <img src="res/pball.png" alt="pokebola">
+           
+          
+        </div>
+
+        <div class="Cicle" style="--name: 'Caffer'"  onclick="openURL('https://www.buymeacoffee.com/SrShadowy')">
+          
+            <img src="res/pball.png" alt="pokebola">
+           
+          
+        </div>
+
+    </div>
+
+    <div class="center">
+      
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/female/25.gif" 
+        alt="pokemon" id="pokemon">
+        <h1 class="info_pokemon">
+            Number: <span id="pokemon_num">6</span><br>
+            Name: <span id="pokemon_name">Pikachu</span><br>
+            Type: <span id="pokemon_type">Eletrico</span><br>
+ 
+        </h1>
+
+
+
+        <div class="Menu" id = "main_menu">
+
+            <button id="config_audio"><img src="res/audio_config.png" alt="configuration audio"></button>
+
+            <div id="audio" style="display: none;">
+                <p class="lead text-light mt-4">Select Voice</p>
+    
+                <!-- Select Menu for Voice -->
+                <select id="voices" class="form-select bg-secondary text-light"></select>
+            
+                <!-- Range Slliders for Volume, Rate & Pitch -->
+                <div>
+                  <div>
+                    <p class="lead">Volume</p>
+                    <input type="range" min="0" max="1" value="1" step="0.1" id="volume" />
+                    <span id="volume-label">1</span>
+                  </div>
+                  <div class="mx-5">
+                    <p class="lead">Rate</p>
+                    <input type="range" min="0.1" max="10" value="1" id="rate" step="0.1" />
+                    <span id="rate-label">1</span>
+                  </div>
+                  <div>
+                    <p class="lead">Pitch</p>
+                    <input type="range" min="0" max="2" value="1" step="0.1" id="pitch" />
+                    <span id="pitch-label">1</span>
+                  </div>
+                </div>
+        
+                <!-- Control Buttons -->
+                <div>
+                  <button id="start" onclick="speak_for_us('Charizard, Pokemon type fire and flying.')">Test</button>
+                </div>
+
+            </div>
+
+
+
+            <div id="poke_details">
+               <h3> 
+                <br>
+                Abilities: <span id="poke_abilit"></span><br>
+                Width: <span id="poke_width"></span><br>
+                Experience: <span id="poke_exp"></span><br>
+                Height: <span id="poke_height"></span>
+
+               </h3>
+            </div>
+            <div id="poke_seaching">
+                <h3>
+                    Pokemon Name:
+                </h3>
+                <input type="text" placeholder="Name or Number" id="pokeNameID">
+                <h3>
+                    Shiny:
+                </h3>
+                <div class="toggle" name="Shiny" id="Shiny" onclick="toggle(this)"></div><br>
+                <!--
+                <label for="Shiny">ON</label>
+                <input type="radio" name="Shiny" id="Shiny">
+                <label for="ShinyOFF">OFF</label>
+                <input type="radio" name="Shiny" id="ShinyOFF" checked>
+                -->
+                <h3>
+                    Gender:
+                </h3>
+                <div class="toggle" name="Gender" id="Gender" onclick="toggle(this)"></div><br><br>
+                <!--
+                <label for="male">Male</label>
+                <input type="radio" name="Gender" id="male" checked>
+                <label for="female">Female</label>
+                <input type="radio" name="Gender" id="female" ><br>
+                -->
+                <button id="btn_seach" onclick="seaching_by_menu()">Seach</button>
+            </div>
+
+      
+
+        </div>
+
+
+        <div class="buttons">
+        <button id="seaching" onclick="show_menu()">Menu</button>
+        <button id="prev" onclick="prev_pokemon_id()">Previous</button>
+        <button id="next" onclick="next_pokemon_id()">Next</button>
+        <button id="details" onclick="show_details()">Details</button>
+        </div>
+
+        <button id="back" onclick="seeBackUI()">ShowBack</button>
+
+
+        <img src="res/pokedex.png" alt="pokedex" id="Pokedex">
+
+    </div>
+</body>
+<footer>
+    <script src="js/speak.js"></script>
+    <script src="js/main.js"></script>
+
+</footer>
+</html>

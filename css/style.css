@@ -1,0 +1,347 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body{
+    background: linear-gradient(to bottom, rgb(216, 23, 23), rgb(34, 33, 33));
+    min-height: 100vh;
+    min-width: 100vw;
+    text-align: center;
+}
+.center{
+    display: inline-block;
+    margin-top: 2%;
+    position: relative;
+    min-width: 600px;
+}
+#pokemon{
+    position: absolute;
+    left: 50%;
+    bottom: 20%;
+    transform: translate(-50%, 30%);
+    height: 20%;
+    /*transform: scale(200%);*/
+
+}
+
+#Pokedex{
+    width: 100%;
+    max-width: 900px;
+}
+
+.Menu{
+  position: absolute;
+  background-color: aliceblue;
+  bottom: 9%;
+  border-radius: 5px;
+  height: 33%;
+  width: 34%;
+  left: 32%;
+}
+.Menu #poke_details{
+    display: none;
+}
+
+
+.Menu .seaching{
+    margin: 25%;
+}
+
+.Menu .details{
+    background-color: black;
+    width: 100%;
+    height: 100%;
+}
+
+.buttons{
+    position: absolute;
+    bottom: 17%;
+    left: 12%;
+    width: 18%;
+    height: 20%;
+}
+
+.buttons button{
+    position: absolute;
+    width: 50%;
+    height: 25%;
+    background-color: rgb(61, 61, 61);
+    color: white;
+    border-radius: 5px;
+}
+
+.buttons button:active{
+    transform: scale(90%);
+    box-shadow:  2px 1px 3px rgba(161, 0, 0, 0.863);
+}
+
+.buttons #next{
+    top: 40%;
+    right: 0;
+}
+
+.buttons #prev{
+    left: 0;
+    top: 40%;
+}
+
+.buttons #seaching{
+    top: 15%;
+    left: 25%;
+}
+
+
+
+.buttons #details{
+    bottom: 10%;
+    left: 25%;
+}
+
+.info_pokemon{
+    position: absolute;
+    font-weight: 600;
+    color: white;
+    top: 12%;
+    left: 33%;
+    font-size: clamp(15px, 5vw, 30px);
+    text-align: justify;
+}
+
+#back{
+    width: 9%;
+    height: 12%;
+    border-radius: 50%;
+    position: absolute;
+    right: 8.5%;
+    bottom: 20.5%;
+    background-color: aquamarine;
+    transform: 100ms;
+}
+
+#config_audio{
+   position: absolute; 
+   right: 0;
+   bottom: 0;
+   width: 13%; 
+   height: 15%;
+   border-radius: 15%;
+}
+#config_audio img{
+    position: absolute;
+    height: 100%;
+    top : 0;
+    left: 0;
+}
+
+#config_audio:active{
+    transform: scale(89%);
+}
+
+#back:active{
+    transform: scale(95%);
+}
+
+.anim{
+    position: fixed;
+    margin-top: 2%;
+    margin-left: 2%;
+    height: 25vh;
+    width: auto;
+}
+
+@keyframes irotete{
+    0%{
+        transform: rotate(-180deg);
+    }
+    50%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes -irotete{
+    0%{
+        transform: rotate(180deg);
+    }
+    50%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(-180deg);
+    }
+}
+
+.anim .Cicle{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    padding: 5%;
+    border: 1px solid white;
+    background-color: rgba(184, 184, 184, 0.733);
+    transition: 300ms;
+}
+
+
+.anim .Cicle::after{
+    content: '';
+    width: 85px;
+    height: 85px;
+    position: absolute;
+    left: -4px;
+    top: -2px;
+    transition: 300ms;
+    border: 2px solid black;
+    transform: rotate(40deg);
+    animation: -irotete infinite 2s;
+
+}
+
+.anim .Cicle:hover{
+    background-color: aliceblue;
+}
+
+.anim .Cicle:hover img{
+    animation: none;
+}
+
+.anim .Cicle:hover::after{
+    color: white;
+    content: var(--name);
+    animation: none;
+    transform: rotate(40deg);
+    background-color: rgba(0, 0, 0, 0.568)
+}
+
+
+
+
+.anim .Cicle img{
+    width: 80px;
+    animation: irotete infinite 1s;
+}
+
+
+.anim .Cicle:nth-child(1){
+    top: 120px;
+}
+.anim .Cicle:nth-child(2){
+    top: calc(120px*2);
+}
+
+.anim .Cicle:last-child{
+    top: calc(120px * 3);
+}
+
+.toggle{
+    position: absolute;
+    left: 40%;
+    
+    width: 18%;
+    height: 10%;
+    background-color: rgba(0, 0, 0, 0.301);
+    border-radius: 52px;
+    border: 1px solid white;
+}
+.toggle::after{
+
+    content: "";
+    position: absolute;
+    width: 45%;
+    height: 100%;
+    background-color: red;
+    box-shadow: 0px 0px 5px red;
+    left: 0px;
+    border-radius: 50%;
+    transition: 200ms;
+
+}
+.toggle.active::after {
+    left: 56%;
+    background-color: greenyellow;
+    box-shadow: 0px 0px 5px greenyellow;
+    transition: 200ms
+}
+
+#btn_seach{
+    width: 45%;
+    color: white;
+    background-color: rgba(29, 29, 29, 0.74);
+    border-radius: 25px;
+    font-size:  clamp(12px, 2vw, 25px);;
+    padding: 1%;
+    margin: 1%;
+    
+}
+
+#poke_seaching h3{
+    font-size:clamp(12px, 2vw, 20px);
+}
+
+#btn_seach:active{
+    background-color: rgb(29, 29, 29);
+    transform: scale(80%);
+}
+
+#pokeNameID{
+    border-radius: 05px;
+    padding: 1%;
+    border: none;
+}
+
+#pokeNameID:focus{
+    outline: none;
+    padding: 1.5%;
+    border: 1px solid red;
+    
+}
+
+
+@media (max-width:1000px) {
+    .anim{
+        position: fixed;
+        top: 80%;
+        width: 100vw;
+    }
+    
+    .anim .Cicle{
+       float: left;
+       position: relative;
+       align-items: center;
+       padding: 5%;
+       margin: 5%;
+     
+    }
+
+    .anim .Cicle:nth-child(0){
+        top: 0;
+    }
+    .anim .Cicle:nth-child(1){
+        top: 0;
+    }
+    .anim .Cicle:nth-child(2){
+        top: 0;
+    }
+    
+    .anim .Cicle:last-child{
+        top: 0;
+    }
+    .anim .Cicle img{
+        width: 80px;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+  
+    #btn_seach{
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        bottom: 10%;
+        right: 27%;
+    }
+}
