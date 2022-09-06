@@ -240,7 +240,9 @@ const next_pokemon_id = () =>{
    reset_propriety();
 }
 const prev_pokemon_id = () =>{
+    if(pokemon_id > 1)
     pokemon_id --;
+    
     render_pokemon(pokemon_id);
     reset_propriety();
 }
